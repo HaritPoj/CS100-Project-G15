@@ -2,4 +2,14 @@ Name: Harit Pojjanawaich
 ID:6609612277
 Nickname: Khame
 Educated: Horwang School
-About Me: Im 18 year old graduated from Horwang school my hobby is playing game, read novel and listen to music.
+About Me: - 19 years old 
+          - playing game, read novel 
+            and listen to music.
+
+Name: Apisada Chaisena
+ID:6609612301
+Nickname: Mink
+Educated: Bodindecha (sing singhaseni) school
+About Me: - 19 years old   
+          - BKK,Thailand 
+          - love to dance.
