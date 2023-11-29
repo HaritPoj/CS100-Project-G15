@@ -1,39 +1,69 @@
-.p1 {
-    font-family: sans-serif;
-    text-align: center;
-    margin-left: auto;
-    margin-right: auto;
+@import url('https://fonts.googleapis.com/css2?family=Karla:wght@300;400;500;600;700&display=swap');
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Karla', sans-serif;
+}
+body{
+  color: #fff;
+}
+.standard{
+  width: 100%;
+  height: 100vh;
+  background-image: url(back.jpg);
+  background-position: center;
+  background-size: cover;
+  padding-top: 35px;
+  padding-left: 8%;
+  padding-right: 8%;
+}
+nav{
+  padding: 10px 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 .navbar{
-    font-family: sans-serif;
-    width: fit-content%;
-    margin: auto;
-    padding: 35px 0;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+  font-size: 40px;
+  text-decoration: none;
 }
-.navbar ul li{
-    list-style: none;
-    display: inline-block;
-    margin: 0 20px;
-    position: relative;
+
+nav ul li{
+  display: inline-block;
+  list-style: none;
+  margin: 10px 15px;
 }
-.navbar ul li a{
-    text-decoration: none;
-    color: black;
-    text-transform: uppercase;
+nav ul li a{
+  text-decoration: none;
+  transition: 0.5s;
 }
-.navbar ul li::after{
-    content: '';
-    height: 3px;
-    width: 0;
-    background: black;
-    position: absolute;
-    left: 0;
-    bottom: -5px;
-    transition: 0.5s;
+nav ul li a:hover{
+  color: #f9004d;
 }
-.navbar ul li:hover::after{
-    width: 100%;
+
+.btn{
+  background: #000;
+  border-radius: 6px;
+  padding: 9px 25px;
+  text-decoration: none;
+  transition: 0.5s;
+  font-size: 18px;
+}
+.content{
+  margin-top: 10%;
+  max-width: 600px;
+}
+.content h2{
+  font-size: 60px
+}
+.content p{
+  margin-top: 10px;
+  line-height: 25px;
+}
+a{
+  color: #fff;
+}
+.link {
+  margin-top: 30px;
 }
