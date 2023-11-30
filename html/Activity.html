@@ -105,6 +105,7 @@
             </form>
         </div>
         <div>
+            <h2>Information</h2>
             <table id="dataTable">
                 <tr>
                     <th>Name</th>
@@ -244,20 +245,6 @@
                     cell6.innerHTML = startDate;
                     cell7.innerHTML = endDate;
                     cell8.innerHTML = location;
-
-                    var tableData = [];
-                        for (var i = 1; i < table.rows.length; i++) {
-                            var rowData = {};
-                            for (var j = 0; j < table.rows[i].cells.length; j++) {
-                                var header = table.rows[0].cells[j].innerHTML;
-                                rowData[header] = table.rows[i].cells[j].innerHTML;
-                            }
-                            tableData.push(rowData);
-                    
-
-                        var redirectUrl = 'display.html?data=' + encodeURIComponent(JSON.stringify(tableData));
-                        window.location.href = redirectUrl;
-                    }
 
                     document.getElementById('myForm').reset();
                 }
