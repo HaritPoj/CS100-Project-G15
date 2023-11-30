@@ -46,7 +46,17 @@ h2 {
   background-color: #c7c7bb;
   font-family: sans-serif
 }
+h3 {
+  font-size: 15px;
+  color: #7f867b;
+  font-family: 'Courier New', Courier, monospace;
+}
 .Khame {
   text-align: center;
-  
+}
+.Mink {
+  text-align: center;
+}
+.Smile {
+  text-align: center;
 }
