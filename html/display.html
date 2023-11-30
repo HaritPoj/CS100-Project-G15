@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Activity Information</title>
+    <link rel="stylesheet" type="text/css" href="../css/display.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="standard">
+        <div class="navbar">
+            <ul>
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="../html/Profile.html">Profile</a></li>
+                <li><a href="#">Activity</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="p1">
+        <h2>Information</h2>
+        <table id="dataTable">
+            <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>ID</th>
+                <th>Work Title</th>
+                <th>Activity Type</th>
+                <th>Start Date</th>
+                <th>End Date</th>
+                <th>Location</th>
+            </tr>
+        </table>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Parse query parameters
+            const urlParams = new URLSearchParams(window.location.search);
+            const tableData = JSON.parse(urlParams.get('data'));
+
+            // Populate the table with data
+            if (tableData) {
+                const table = document.getElementById('dataTable');
+
+                tableData.forEach(data => {
+                    const newRow = table.insertRow(-1);
+                    Object.values(data).forEach(value => {
+                        const cell = newRow.insertCell(-1);
+                        cell.innerHTML = value;
+                    });
+                });
+            }
+        });
+    </script>
+</body>
+</html>
+
