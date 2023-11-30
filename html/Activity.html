@@ -1,62 +1,66 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>Our Activity</title>
-        <link rel="stylesheet" type="text/css" href="../css/Activity.css">
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
-        <title>Forms - CSTU Passport</title>
-        <link rel="stylesheet" href="styles.css">
-    </head>
-    <body>
-        <div class="standard">
-            <div class="navbar">
-                <ul>
-                    <li><a href="../index.html">Home</a></li>
-                    <li><a href="../html/Profile.html">Profile</a></li>
-                    <li><a href="#">Activity</a></li>
-                </ul>
-            </div>
+<head>
+    <title>Our Activity</title>
+    <link rel="stylesheet" type="text/css" href="../css/Activity.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+    <title>Forms - CSTU Passport</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="standard">
+        <div class="navbar">
+            <ul>
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="../html/Profile.html">Profile</a></li>
+                <li><a href="#">Activity</a></li>
+            </ul>
         </div>
-        
-        <div class="p1">
-            <div class="form-container">
-                <h2>Our Activitiy form</h2>
-                <!-- Main Form -->
-                <form id="myForm" action="#" method="post">
-                    <!-- Firstname and Lastname Field -->
-                    <div class="form-group">
-                        <label for="fullname">Firstname and Lastname <span class="required">*</span></label>
-                        <input type="text" id="fullname" name="fullname" required />
-                    </div>
-                    <br>
+    </div>
 
-                    <!-- Student ID Field -->
-                    <div class="form-group">
-                        <label for="studentID">Student ID <span class="required">*</span></label>
-                        <input type="text" id="studentID" name="studentID" required />
-                    </div>
-                    <br>
+    <div class="p1">
+        <div class="form-container">
+            <h2>Our Activity form</h2>
+            <!-- Main Form -->
+            <form id="myForm" action="#" method="post">
+                <!-- Firstname and Lastname Field -->
+                <div class="form-group">
+                    <label for="fullname">Name<span class="required">*</span></label>
+                    <input type="text" id="fullname" name="fullname" oninput="validateName()" placeholder="Enter your name" required />
+                    <p id="nameError" class="error"></p>
+                </div>
+                <br>
 
-                    <!-- University Email Field -->
-                    <div class="form-group">
-                        <label for="email">University Email <span class="required">*</span></label>
-                        <input type="email" id="email" name="email" required />
-                    </div>
-                    <br>
+                <!-- University Email Field -->
+                <div class="form-group">
+                    <label for="email">University Email <span class="required">*</span></label>
+                    <input type="email" id="email" name="email" oninput="validateEmail(this.value)" placeholder="Enter your email" required/>
+                    <p id="emailError" class="error"></p>
+                </div>
+                <br>
 
-                    <!-- Work/Activity Title Field -->
-                    <div class="form-group">
-                        <label for="workTitle">Work/Activity Title <span class="required">*</span></label>
-                        <input type="text" id="workTitle" name="workTitle" required />
-                    </div>
-                    <br>
+                <!-- Student ID Field -->
+                <div class="form-group">
+                    <label for="stdid">Student ID:</label>
+                    <input type="number" id="stdid" name="stdid" oninput="validateID()" placeholder="Enter your Student ID" required>
+                    <p id="IDError" class="error"></p>
+                </div>
+                <br>
 
-                    <!-- Type of Work/Activity Field -->
-                    <div class="form-group">
-                        <label for="activityType">Type of Work/Activity <span class="required">*</span></label>
-                        <select id="activityType" name="activityType" required>
+                <!-- Work/Activity Title Field -->
+                <div class="form-group">
+                    <label for="workTitle">Work/Activity Title <span class="required">*</span></label>
+                    <input type="text" id="workTitle" name="workTitle" placeholder="Enter your title" required>
+                    <p id="workTitleError" class="error"></p>
+                </div>
+                <br>
+
+                <!-- Type of Work/Activity Field -->
+                <div class="form-group">
+                    <label for="activityType">Type of Work/Activity <span class="required">*</span></label>
+                    <select id="activityType" name="activityType" required>
                         <option value="" disabled selected>Select an option</option>
                         <option value="Course">Course</option>
                         <option value="Activity">Activity</option>
@@ -65,39 +69,211 @@
                         <option value="Sports">Sports</option>
                         <option value="Competition">Competition</option>
                         <option value="Computer Science">Computer Science</option>
-                        </select>
-                    </div>
-                    <br>
+                    </select>
+                    <p id="activityTypeError" class="error"></p>
+                </div>
+                <br>
 
-                    <!-- Start Date/Time Field -->
-                    <div class="form-group">
-                        <label for="startDate">Start Date/Time <span class="required">*</span></label>
-                        <input type="datetime-local" id="startDate" name="startDate" required />
-                    </div>
-                    <br>
+                <!-- Start Date/Time Field -->
+                <div class="form-group">
+                    <label for="startDate">Start Date/Time <span class="required">*</span></label>
+                    <input type="datetime-local" id="startDate" name="startDate" required/>
+                    <p id="startDateError" class="error"></p>
+                </div>
+                <br>
 
-                    <!-- End Date/Time Field -->
-                    <div class="form-group">
-                        <label for="endDate">End Date/Time <span class="required">*</span></label>
-                        <input type="datetime-local" id="endDate" name="endDate" required />
-                    </div>
-                    <br>
+                <!-- End Date/Time Field -->
+                <div class="form-group">
+                    <label for="endDate">End Date/Time <span class="required">*</span></label>
+                    <input type="datetime-local" id="endDate" name="endDate" required/>
+                    <p id="endDateError" class="error"></p>
+                </div>
+                <br>
 
-                    <!-- Location Field -->
-                    <div class="form-group">
-                        <label for="location">Location <span class="required">*</span></label>
-                        <input type="text" id="location" name="location" required />
-                    </div>
-                    <br>
+                <!-- Location Field -->
+                <div class="form-group">
+                    <label for="location">Location <span class="required">*</span></label>
+                    <input type="text" id="location" name="location" placeholder="Enter location" required/>
+                    <p id="locationError" class="error"></p>
+                </div>
+                <br>
 
-                    <!-- Submit Button -->
-                    <div class="form-group">
-                        <input type="submit" value="Submit" />
-                    </div>
-                    <br>
-                </form>
-            </div>
-            <script src="script.js"></script>
+                <!-- Submit Button -->
+                <div class="form-group">
+                    <input type="button" id="Submit" value="Submit" onclick="addRow()">
+                </div>
+                <br>
+            </form>
         </div>
-    </body>
+        <div>
+            <h2>Information</h2>
+            <table id="dataTable">
+                <tr>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>ID</th>
+                </tr>
+            </table>
+        </div>
+
+        <script>
+            function addRow() {
+                var nameInput = document.getElementById('fullname');
+                var emailInput = document.getElementById('email');
+                var stdidInput = document.getElementById('stdid');
+                var workTitleInput = document.getElementById('workTitle');
+                var activityTypeInput = document.getElementById('activityType');
+                var startDateInput = document.getElementById('startDate');
+                var endDateInput = document.getElementById('endDate');
+                var locationInput = document.getElementById('location');
+
+                var nameError = document.getElementById('nameError');
+                var emailError = document.getElementById('emailError');
+                var idError = document.getElementById('IDError');
+                var workTitleError = document.getElementById('workTitleError');
+                var activityTypeError = document.getElementById('activityTypeError');
+                var startDateError = document.getElementById('startDateError');
+                var endDateError = document.getElementById('endDateError');
+                var locationError = document.getElementById('locationError');
+
+                var nameRegex = /^[a-zA-Z\s\-]+$/;
+                if (!nameRegex.test(nameInput.value)) {
+                    nameError.textContent = 'Invalid name. Please use only letters, spaces, or hyphens.';
+                    nameInput.setCustomValidity('Invalid name');
+                } else {
+                    nameError.textContent = '';
+                    nameInput.setCustomValidity('');
+                }
+
+                var emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+                if (!emailRegex.test(emailInput.value)) {
+                    emailError.textContent = 'Invalid email. Please enter a valid email address.';
+                    emailInput.setCustomValidity('Invalid email');
+                } else {
+                    emailError.textContent = '';
+                    emailInput.setCustomValidity('');
+                }
+
+                var idRegex = /^\d{10}$/;
+                if (!idRegex.test(stdidInput.value)) {
+                    idError.textContent = 'Invalid ID. Please enter a 10-digit number.';
+                    stdidInput.setCustomValidity('Invalid ID');
+                } else {
+                    idError.textContent = '';
+                    stdidInput.setCustomValidity('');
+                }
+
+                if (workTitleInput.value.trim() === '') {
+                    workTitleError.textContent = 'Please enter a work/activity title.';
+                    workTitleInput.setCustomValidity('Work/Activity title is required');
+                } else {
+                    workTitleError.textContent = '';
+                    workTitleInput.setCustomValidity('');
+                }
+
+                if (activityTypeInput.value === '') {
+                    activityTypeError.textContent = 'Please select a type of work/activity.';
+                    activityTypeInput.setCustomValidity('Type of work/activity is required');
+                } else {
+                    activityTypeError.textContent = '';
+                    activityTypeInput.setCustomValidity('');
+                }
+
+                if (startDateInput.value === '') {
+                    startDateError.textContent = 'Please enter a start date and time.';
+                    startDateInput.setCustomValidity('Start date/time is required');
+                } else {
+                    startDateError.textContent = '';
+                    startDateInput.setCustomValidity('');
+                }
+
+                if (endDateInput.value === '') {
+                    endDateError.textContent = 'Please enter an end date and time.';
+                    endDateInput.setCustomValidity('End date/time is required');
+                } else {
+                    endDateError.textContent = '';
+                    endDateInput.setCustomValidity('');
+                }
+                if (locationInput.value.trim() === '') {
+                    locationError.textContent = 'Please enter a location.';
+                    locationInput.setCustomValidity('Location is required');
+                } else {
+                    locationError.textContent = '';
+                    locationInput.setCustomValidity('');
+                }
+                if (
+                    nameInput.checkValidity() &&
+                    emailInput.checkValidity() &&
+                    stdidInput.checkValidity() &&
+                    workTitleInput.checkValidity() &&
+                    activityTypeInput.checkValidity() &&
+                    startDateInput.checkValidity() &&
+                    endDateInput.checkValidity() &&
+                    locationInput.checkValidity()
+                ) {
+                    var fullname = nameInput.value;
+                    var email = emailInput.value;
+                    var stdid = stdidInput.value;
+
+                    var table = document.getElementById('dataTable');
+
+                    var newRow = table.insertRow(-1);
+
+                    var cell1 = newRow.insertCell(0);
+                    var cell2 = newRow.insertCell(1);
+                    var cell3 = newRow.insertCell(2);
+
+                    cell1.innerHTML = fullname;
+                    cell2.innerHTML = email;
+                    cell3.innerHTML = stdid;
+
+                    document.getElementById('myForm').reset();
+                }
+            }
+
+            function validateName() {
+                var nameInput = document.getElementById('fullname');
+                var nameError = document.getElementById('nameError');
+
+                var nameRegex = /^[a-zA-Z\s\-]+$/;
+
+                if (!nameRegex.test(nameInput.value)) {
+                    nameError.textContent = 'Invalid name. Please use only letters, spaces, or hyphens.';
+                    nameInput.setCustomValidity('Invalid name');
+                } else {
+                    nameError.textContent = '';
+                    nameInput.setCustomValidity('');
+                }
+            }
+
+            function validateID() {
+                var stdidInput = document.getElementById('stdid');
+                var idError = document.getElementById('IDError');
+
+                var regex = /^\d{10}$/;
+
+                if (!regex.test(stdidInput.value)) {
+                    idError.textContent = 'Invalid ID. Please enter a 10-digit number.';
+                    stdidInput.setCustomValidity('Invalid ID');
+                } else {
+                    idError.textContent = '';
+                    stdidInput.setCustomValidity('');
+                }
+            }
+
+            function validateEmail(email) {
+                var emailError = document.getElementById('emailError');
+                var emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+
+                if (!emailRegex.test(email)) {
+                    emailError.textContent = 'Invalid email. Please enter a valid email address.';
+                    document.getElementById('email').setCustomValidity('Invalid email');
+                } else {
+                    emailError.textContent = '';
+                    document.getElementById('email').setCustomValidity('');
+                }
+            }
+        </script>
+    </div>
+</body>
 </html>
