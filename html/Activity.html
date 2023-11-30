@@ -112,6 +112,11 @@
                     <th>Name</th>
                     <th>Email</th>
                     <th>ID</th>
+                    <th>Work Title</th>
+                    <th>Activity Type</th>
+                    <th>Start Date</th>
+                    <th>End Date</th>
+                    <th>Location</th>
                 </tr>
             </table>
         </div>
@@ -214,6 +219,11 @@
                     var fullname = nameInput.value;
                     var email = emailInput.value;
                     var stdid = stdidInput.value;
+                    var workTitle = workTitleInput.value;
+                    var activityType = activityTypeInput.value;
+                    var startDate = startDateInput.value;
+                    var endDate = endDateInput.value;
+                    var location = locationInput.value;
 
                     var table = document.getElementById('dataTable');
 
@@ -222,10 +232,20 @@
                     var cell1 = newRow.insertCell(0);
                     var cell2 = newRow.insertCell(1);
                     var cell3 = newRow.insertCell(2);
+                    var cell4 = newRow.insertCell(3);
+                    var cell5 = newRow.insertCell(4);
+                    var cell6 = newRow.insertCell(5);
+                    var cell7 = newRow.insertCell(6);
+                    var cell8 = newRow.insertCell(7);
 
                     cell1.innerHTML = fullname;
                     cell2.innerHTML = email;
                     cell3.innerHTML = stdid;
+                    cell4.innerHTML = workTitle;
+                    cell5.innerHTML = activityType;
+                    cell6.innerHTML = startDate;
+                    cell7.innerHTML = endDate;
+                    cell8.innerHTML = location;
 
                     document.getElementById('myForm').reset();
                 }
