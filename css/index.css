@@ -1,3 +1,10 @@
+#body1 {
+  background-color: #feecec;
+  max-width: 65%;
+  margin: 0 auto 0 auto;
+  padding-bottom: 40px;
+}
+
 .p1 {
     font-family: sans-serif;
     text-align: center;
@@ -9,10 +16,11 @@
     font-family: sans-serif;
     width: fit-content 30%;
     margin: auto;
-    padding: 35px 0;
+    padding: 30px 0;
     display: flex;
     align-items: center;
     justify-content: space-between;
+    background-color: white;
 }
 .navbar ul li{
     list-style: none;
@@ -42,8 +50,11 @@
 h2 {
     font-size: 25px;
     text-align: center;
+    border-radius: 25px;
+    max-width: 100%;
     background-color: #c7c7bb;
-    font-family: Verdana, sans-serif
+    font-family: Verdana, sans-serif;
+    
   }
   h3 {
     font-size: 15px;
@@ -56,20 +67,19 @@ h2 {
     font-family:Brush Script MT, Brush Script Std, cursive;
   }
   .Khame {
-    text-align:justify;
-    top: 50%;
-    left: 50% ; 
+    text-align: center;
     background-color: #f6f5f0;
-    
     font-family: DejaVu Sans Mono, monospace;
     font-size: 15px;
     color: #4a332d;
+    border-radius: 25px;
   }
   .Mink {
     text-align: center;
     font-family: DejaVu Sans Mono, monospace;
     font-size: 15px;
     color: #4a332d;
+    border-radius: 25px;
   }
   .Smile {
     text-align: center;
@@ -77,6 +87,7 @@ h2 {
     font-family: DejaVu Sans Mono, monospace;
     font-size: 15px;
     color: #4a332d;
+    border-radius: 25px;
   }
   .bottom{
     font-family: DejaVu Sans Mono, monospace;
@@ -86,17 +97,7 @@ h2 {
     color: white;
   }
 
-  .profileright {
-    height: 50% ;
-    top: 25%;
-    position: absolute;
-    bottom: 0;
-    right: 160px;
-
-    border-radius: 10%;
-
-  }
-
+  
 
   
   /* mobile */
