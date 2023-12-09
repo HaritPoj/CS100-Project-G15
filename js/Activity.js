@@ -131,10 +131,10 @@ function validateName() {
     var nameInput = document.getElementById('fullname');
     var nameError = document.getElementById('nameError');
 
-    var nameRegex = /^[a-zA-Z\s\-]+$/;
+    var nameRegex = /^[A-Z][a-zA-Z\s\-]*$/;
 
     if (!nameRegex.test(nameInput.value)) {
-        nameError.textContent = 'Invalid name. Please use only letters, spaces, or hyphens.';
+        nameError.textContent = 'Invalid name. Please use uppercase as first letter and only letters, spaces, or hyphens required.';
         nameInput.setCustomValidity('Invalid name');
     } else {
         nameError.textContent = '';
@@ -146,10 +146,10 @@ function validateID() {
     var stdidInput = document.getElementById('stdid');
     var idError = document.getElementById('IDError');
 
-    var regex = /^\d{10}$/;
+    var regex = /^6\d{9}$/;
 
     if (!regex.test(stdidInput.value)) {
-        idError.textContent = 'Invalid ID. Please enter a 10-digit number.';
+        idError.textContent = 'Invalid ID. Please enter a 10-digit number that start with 6.';
         stdidInput.setCustomValidity('Invalid ID');
     } else {
         idError.textContent = '';
@@ -157,15 +157,17 @@ function validateID() {
     }
 }
 
-function validateEmail(email) {
-    var emailError = document.getElementById('emailError');
-    var emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
-
-    if (!emailRegex.test(email)) {
-        emailError.textContent = 'Invalid email. Please enter a valid email address.';
-        document.getElementById('email').setCustomValidity('Invalid email');
+function validateEmail() {
+    const emailInput = document.getElementById("email");
+    const emailPattern = /^.+@dome\.tu\.ac\.th$/;
+    const errorElement = document.getElementById("emailError");
+  
+    if (!emailPattern.test(emailInput.value)) {
+      errorElement.textContent =
+        "Please provide a valid university email in the format 'xxx.yyy@dome.tu.ac.th'.";
+      return false;
     } else {
-        emailError.textContent = '';
-        document.getElementById('email').setCustomValidity('');
+      errorElement.textContent = ""; // Clear the error message when valid
     }
-}
+    return true;
+  }
