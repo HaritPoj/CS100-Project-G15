@@ -33,35 +33,25 @@ app.get('/', (req, res) => {
 // POST endpoint to add a new record to the database
 // It validates the provided data and writes it to 'records.json' file
 app.post('/record', (req, res) => {
-    const data = req.body;
+  const data = req.body;
 
-    // Check for mandatory fields in the incoming request
-    if (!data.first_name || !data.last_name || !data.student_id || !data.email || !data.title || 
-      !data.type_of_work_id || !data.academic_year || !data.semester || !data.start_date || !data.end_date || !data.location || !data.description) {
+  // Check for mandatory fields in the incoming request
+  if (!data.fullname || !data.stdid || !data.email || !data.workTitle ||
+      !data.activityType || !data.startDate || !data.endDate || !data.location) {
       return res.status(400).send('All fields are required.');
-    }
-  
-    // Validate that the start and end dates provided fall within the academic calendar
-    const dateValidationError = validateDates(data.academic_year, data.semester, data.start_date, data.end_date);
-    if (dateValidationError) {
-      return res.status(400).json({message: dateValidationError});
-    }
+  }
 
     // Structure the record for saving
     const record = {
-      first_name: data.first_name,
-      last_name: data.last_name,
-      student_id: data.student_id,
+      fullname: data.fullname,
+      stdid: data.stdid,
       email: data.email,
-      title: data.title,
-      type_of_work_id: data.type_of_work_id,
-      academic_year: data.academic_year,
-      semester: data.semester,
-      start_date: data.start_date,
-      end_date: data.end_date,
+      workTitle: data.workTitle,
+      activityType: data.activityType,
+      startDate: data.startDate,
+      endDate: data.endDate,
       location: data.location,
-      description: data.description,
-    };
+  };
   
     let records = [];
     try {
